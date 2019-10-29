@@ -1,10 +1,10 @@
-# Álgebra Linear Resolvendo Sistemas Lineares
+# Ãlgebra Linear
 
 ## Requisitos
 - python 3
 
 
-## Instalação Virtualenv
+## InstalaÃ§Ã£o Virtualenv
 
 - pip install virtualenv
 - virtualenv nome_da_virtualenv
@@ -18,5 +18,5 @@
 ### desativando
 - deactivate
 
-###  Instalando dependências 
+###  Instalando dependÃªncias 
 - pip install -r requirements.txt
