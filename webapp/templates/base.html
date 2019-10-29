@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{% block title %}{% endblock %}</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">    
+    <link href="{% static 'favicon.ico' %}" rel="icon" type="image/x-icon" />
+    <link rel="stylesheet" href="{% static 'libs/bootstrap/css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'libs/fontawesome/fontawesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/site.css' %}">
+  </head>
+  <body>
+     <div class="container">
+        <div class="row">       
+            {% block content %}
+            {% endblock %}
+        </div>
+     </div>
+
+    <script src="{% static 'libs/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'libs/jquery/jquery-3.4.1.js' %}"></script>
+    <script src="{% static 'scripts/main.js' %}"></script>
+  </body>
+</html>
