@@ -1,1 +1,1 @@
-web: gunicorn tw_clientes.wsgi
+web: gunicorn webapp.settings.wsgi
