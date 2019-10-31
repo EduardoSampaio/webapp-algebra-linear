@@ -3,20 +3,18 @@
 ## Requisitos
 - python 3
 
-
 ## Instalação Virtualenv
 
 - pip install virtualenv
-- virtualenv nome_da_virtualenv
+- virtualenv venv
 
-### ativando virtualEnv
+### ativando ambiente virtual
+- source venv/bin/activate (Linux ou macOS)
 
-- souce nome_da_virtualenv/bin/activate (Linux ou macOS)
+- venv/Scripts/activate (Windows)
 
-- nome_da_virtualenvScriptsactivate (Windows)
-
-### desativando
-- deactivate
-
-###  Instalando dependências 
+###  Instalando dependencias 
 - pip install -r requirements.txt
+
+### rodando app
+- python manage.py runserver    

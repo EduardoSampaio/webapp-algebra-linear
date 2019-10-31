@@ -41,12 +41,16 @@
             </table>          
         </div> 
         <div class="col-2">  
-            <button type="button" class="btn btn-success btn-block">Executar</button>
-            <div class="upload-btn-wrapper">
-                <button class="btn btn-primary btn-block">Importar</button>
-                <input type="file" name="arquivo" id="arquivo" enctype="multipart/form-data" />
-            </div>
-            <button type="button" class="btn btn-danger btn-block">Limpar</button>
+            <form action="{% url 'index' %}" method="POST" enctype="multipart/form-data">
+                {{ form.as_p }}
+                {% csrf_token %}
+                <button type="submit" class="btn btn-success btn-block">Executar</button>
+                <div class="upload-btn-wrapper">
+                    <button class="btn btn-primary btn-block">Importar</button>
+                    <input type="file" name="arquivo" id="arquivo"  />
+                </div>
+                <button type="button" class="btn btn-danger btn-block">Limpar</button>
+            <form>
         </div>
         <hr />
     </div>
