@@ -1,5 +1,8 @@
 autopep8==1.4.4
+beautifulsoup4==4.8.1
 Django==2.2.6
 pycodestyle==2.5.0
 pytz==2019.3
+soupsieve==1.9.4
 sqlparse==0.3.0
+whitenoise==4.1.4
