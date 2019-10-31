@@ -1,4 +1,4 @@
-{% extends 'webapp/base.html' %}
+{% extends 'base.html' %}
 {% block title %}APP{% endblock %}
 {% block content %}
 <div class="col">
@@ -22,7 +22,7 @@
             </div>  
         </div>
         <div class="col">
-            <table>
+            {% comment %} <table>
                 <tr>
                     <td>1</td>
                     <td>1</td>
@@ -38,16 +38,16 @@
                     <td>1</td>
                     <td>1</td>
                 </tr>           
-            </table>          
+            </table>           {% endcomment %}
         </div> 
         <div class="col-2">  
             <form action="{% url 'index' %}" method="POST" enctype="multipart/form-data">
-                {{ form.as_p }}
+                {{ form.docfile }}
                 {% csrf_token %}
                 <button type="submit" class="btn btn-success btn-block">Executar</button>
                 <div class="upload-btn-wrapper">
                     <button class="btn btn-primary btn-block">Importar</button>
-                    <input type="file" name="arquivo" id="arquivo"  />
+                    <input type="file" name="docfile" id="arquivo"  />
                 </div>
                 <button type="button" class="btn btn-danger btn-block">Limpar</button>
             <form>
