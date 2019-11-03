@@ -20,37 +20,30 @@
             <div class="radio">
                 <label><input type="radio" name="optradio" /> Fatoração LU</label>
             </div>  
-        </div>
-        <div class="col">
-            {% comment %} <table>
-                <tr>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                </tr>           
-            </table>           {% endcomment %}
-        </div> 
-        <div class="col-2">  
             <form action="{% url 'index' %}" method="POST" enctype="multipart/form-data">
-                {{ form.docfile }}
+                {{ form.file }}
                 {% csrf_token %}
                 <button type="submit" class="btn btn-success btn-block">Executar</button>
                 <div class="upload-btn-wrapper">
                     <button class="btn btn-primary btn-block">Importar</button>
-                    <input type="file" name="docfile" id="arquivo"  />
+                    <input type="file" name="file" id="arquivo" />
                 </div>
                 <button type="button" class="btn btn-danger btn-block">Limpar</button>
-            <form>
+                <form>
+        </div>
+
+        <div class="col">
+            <table>
+                {% for row in matriz %}
+                <tr>
+                    {% for cell in row %}
+                    <td>
+                        {{ cell }}
+                    </td>
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+            </table>
         </div>
         <hr />
     </div>
