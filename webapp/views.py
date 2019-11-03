@@ -17,8 +17,7 @@ def index(request):
             matriz = np.loadtxt(io_string, delimiter=',', dtype=int)
             return render(request, 'index.html', {'matriz': matriz})
         except:
-            print("ERRO")
-      
+            print("ERRO")  
     return render(request, 'index.html')
 
 
