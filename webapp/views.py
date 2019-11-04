@@ -11,8 +11,12 @@ import io
 
 def index(request):
     if request.method == 'POST':
-        data = request.FILES['file'].read().decode('UTF-8')
-        io_string = io.StringIO(data)
-        matriz = np.loadtxt(io_string, delimiter=',', dtype=int)
-        return render(request, 'index.html', {'matriz': matriz})
+        matriz = readCSV(request)
+        return render(request, 'index.html', {'matriz': matriz}) 
     return render(request, 'index.html')
+
+def readCSV(request):
+    data = request.FILES['file'].read().decode('UTF-8')
+    io_string = io.StringIO(data)
+    matriz = np.loadtxt(io_string, delimiter=',', dtype=int)
+    return matriz

@@ -5,6 +5,12 @@ $(document).ready(function () {
         console.log(fileName);
         
     });
+
+    $('#limpar').click(function(){
+        $('#arquivo').val('');
+      //  let url =  window.location.hostname
+        window.location.href = url
+    });
   
 })
 
