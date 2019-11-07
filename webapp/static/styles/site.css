@@ -1,6 +1,12 @@
 body {
   font-family: "Roboto", sans-serif;
 }
+
+input[type='file'] {
+    color: transparent;    /* Hides your "No File Selected" */
+    direction: rtl;        /* Sets the Control to Right-To-Left */
+  }
+  
 #menu-lateral{
     background-color: #222d32;
     height: 100vh;
@@ -63,7 +69,7 @@ table {
     padding: 35px;
   }
   
-  .upload-btn-wrapper {
+  /* .upload-btn-wrapper {
     position: relative;
     overflow: hidden;
     display: block;
@@ -75,7 +81,7 @@ table {
     left: 0;
     top: 0;
     opacity: 0;
-  } 
+  }  */
   
   .info{
     -webkit-tap-highlight-color: rgba(0,0,0,0);
@@ -92,9 +98,7 @@ table {
     padding: 20px;
     margin-bottom: 10px;
   } 
-  }
   
-
   .info-titulo {
     min-height: 90px;
  

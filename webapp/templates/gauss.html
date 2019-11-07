@@ -7,13 +7,33 @@
         <h2>Eliminação Gaussiana</h2>
     </div>
     <div class="info info-conteudo">
-        <h2>Conteudo</h2>
+        <div class="col-12">
+            <form action="{% url 'index' %}" method="POST" enctype="multipart/form-data">
+                {{ form.file }}
+                {% csrf_token %}
+                <input type="file" name="file" id="arquivo" title="" value="" />
+                <!-- <div class="row">
+                        <div class="col-12">
+                            <div class="col-2">
+                               
+                            </div>
+
+                            <div class="col-6">
+                                <select class="">
+                                    <option value="0">Selecione Dimensão</option>
+                                    <option value="1">2 X 2</option>
+                                    <option value="2">3 X 3</option>
+                                    <option value="3">4 X 4</option>
+                                    <option value="4">5 X 5</option>
+                                </select>
+                                <button>Definir</button>
+                            </div>
+                        </div>
+                    </div> -->
+                <form>
+        </div>
     </div>
     <div class="info info-detalhes">
-        <h2>Resultado</h2>
-    </div>
-    <div class="info info-detalhes">
-        <h2>detalhes</h2>
     </div>
 </div>
 {% endblock %}
