@@ -17,7 +17,8 @@ def index(request):
 
 
 def gauss(request):
-    return render(request, 'gauss.html')
+    resultado = '$$x_{1}=1 x_{2}=5$$'
+    return render(request, 'gauss.html', {'resultado':resultado})
 
 
 def gaussjordan(request):

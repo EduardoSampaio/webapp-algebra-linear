@@ -3,10 +3,10 @@ body {
 }
 
 input[type='file'] {
-    color: transparent;    /* Hides your "No File Selected" */
-    direction: rtl;        /* Sets the Control to Right-To-Left */
+    color: transparent; 
+    /*direction: rtl;  */
   }
-  
+   
 #menu-lateral{
     background-color: #222d32;
     height: 100vh;
@@ -69,20 +69,7 @@ table {
     padding: 35px;
   }
   
-  /* .upload-btn-wrapper {
-    position: relative;
-    overflow: hidden;
-    display: block;
-    padding-top: 10px;
-    padding-bottom: 10px;
-  }
-  .upload-btn-wrapper input[type=file] {
-    position: absolute;
-    left: 0;
-    top: 0;
-    opacity: 0;
-  }  */
-  
+
   .info{
     -webkit-tap-highlight-color: rgba(0,0,0,0);
     font-size: 20px;
@@ -110,6 +97,15 @@ table {
 }
 
 .info-detalhes{
-    min-height: 200px;
+    min-height: 350px;
  
+}
+
+.sobre {
+    font-size: 1em;
+    min-height: 300px;
+}
+
+.entrada{
+    min-height: 200px;
 }
