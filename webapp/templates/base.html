@@ -6,6 +6,7 @@
     <title>{% block title %}{% endblock %}</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
     <link href="{% static 'favicon.ico' %}" rel="icon" type="image/x-icon" />
     <link rel="stylesheet" href="{% static 'libs/bootstrap/css/bootstrap.css' %}">
@@ -18,17 +19,15 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="row">
-                    <div class="col-md-2 margin-0 padding-0">
-                        <div id="menu-lateral">
-                            <div class="label-menu">
-                                <h2>Álgebra Linear</h2>
-                            </div>
-                            <a href="{% url 'gauss' %}" class="active">Gauss</a>
-                            <a href="{% url 'gaussjordan' %}">Gauss Jordan</a>
-                            <a href="{% url 'fatoracaolu' %}">Fatoração LU</a>
+                    <nav class="col-md-2 col-sm-12 m-0 p-0" id="menu-lateral">
+                        <div class="label-menu">
+                            <h2>Álgebra Linear</h2>
                         </div>
-                    </div>
-                    <div class="col-md-10 margin-0 padding-0">
+                        <a href="{% url 'gauss' %}" id="gauss">Eliminação Gaussiana</a>
+                        <a href="{% url 'gaussjordan' %}" id="jordan">Eliminação Gauss Jordan</a>
+                        <a href="{% url 'fatoracaolu' %}" id="fatoracao">Fatoração LU</a>
+                    </nav>
+                    <div class="col-md-10 col-sm-12 m-0 p-0">
                         <div id="conteudo">
                             {% block content %}
                             {% endblock %}
@@ -41,7 +40,7 @@
         <script src="{% static 'libs/jquery/jquery-3.4.1.js' %}"></script>
         <script src="{% static 'scripts/main.js' %}"></script>
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.0/es5/tex-mml-chtml.js">
+        <script id="MathJax-script" async src="{%static 'libs/tex-mml-chtml.js'%}">
         </script>
 </body>
 

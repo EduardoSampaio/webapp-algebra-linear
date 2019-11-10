@@ -1,55 +1,50 @@
 body {
-  font-family: "Roboto", sans-serif;
+    font-family: "Roboto", sans-serif;
 }
 
-input[type='file'] {
-    color: transparent; 
+input[type="file"] {
+    color: transparent;
     /*direction: rtl;  */
-  }
-   
-#menu-lateral{
+}
+
+#menu-lateral {
+    box-sizing: border-box;
     background-color: #222d32;
-    height: 100vh;
+    height: 100vw;
 }
 
 #menu-lateral a {
     color: #ecf0f5;
-    display: block; 
-    padding: 12px; 
-    text-decoration: none; 
+    display: block;
+    padding: 12px;
+    text-decoration: none;
 }
-#menu-lateral  a:hover {
-    background-color: #ccc; 
-  }
-  
-#menu-lateral a.active {
-    background-color: #4CAF50;
-    color: white; 
+#menu-lateral a:hover {
+    background-color: crimson;
+    border-left: 4px solid midnightblue;
 }
 
-#conteudo{
+#menu-lateral a.active {
+    background-color: crimson;
+    color: white;
+    border-left: 4px solid midnightblue;
+}
+
+#conteudo {
     background-color: #ecf0f5;
     height: 100vh;
 }
 
-.label-menu{
+.label-menu {
     padding: 50px;
     color: white;
     background-color: #1b2022;
     border-bottom: 1 solid #1b2022;
 }
 
-.label-menu h2{
+.label-menu h2 {
     font-weight: 700;
     font-size: 1.5em;
-}
-
-.margin-0 {
-    margin: 0;
-}
-
-.padding-0{
-    padding: 0;
 }
 
 table {
@@ -62,16 +57,15 @@ table {
     -webkit-border-radius: 25px;
     -moz-border-radius: 25px;
     border-radius: 25px;
-    margin:auto
-  }
-  
-  td {
-    padding: 35px;
-  }
-  
+    margin: auto;
+}
 
-  .info{
-    -webkit-tap-highlight-color: rgba(0,0,0,0);
+td {
+    padding: 35px;
+}
+
+.info {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     font-size: 20px;
     line-height: 2;
     color: #333;
@@ -80,25 +74,22 @@ table {
     display: block;
     min-height: 90px;
     background: #fff;
-    box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
     border-radius: 2px;
     padding: 20px;
     margin-bottom: 10px;
-  } 
-  
-  .info-titulo {
+}
+
+.info-titulo {
     min-height: 90px;
- 
-  }
+}
 
 .info-conteudo {
     min-height: 450px;
-
 }
 
-.info-detalhes{
+.info-detalhes {
     min-height: 350px;
- 
 }
 
 .sobre {
@@ -106,6 +97,14 @@ table {
     min-height: 300px;
 }
 
-.entrada{
+.entrada {
     min-height: 200px;
 }
+
+@media (max-width: 766px) {
+    #menu-lateral {
+        background-color: #222d32;
+        height:45vh;
+    }
+}
+

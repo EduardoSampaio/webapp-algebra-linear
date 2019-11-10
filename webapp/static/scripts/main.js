@@ -11,6 +11,24 @@ $(document).ready(function () {
       //  let url =  window.location.hostname
         window.location.href = url
     });
+
+
+    loadClassActive();
   
 })
 
+
+function loadClassActive() {
+    let page = window.location.pathname;
+
+    if (page == '/gauss/') {
+        console.log(page)
+        $('#gauss').addClass('active')
+    }
+    else if (page == '/gaussjordan/') {
+        $('#jordan').addClass('active')
+    }
+    else if (page == '/fatoracaolu/') {
+        $('#fatoracao').addClass('active')
+    }
+}
