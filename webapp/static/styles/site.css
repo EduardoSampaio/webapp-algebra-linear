@@ -1,5 +1,6 @@
 body {
     font-family: "Roboto", sans-serif;
+    max-height: 100%;
 }
 
 input[type="file"] {
@@ -10,7 +11,8 @@ input[type="file"] {
 #menu-lateral {
     box-sizing: border-box;
     background-color: #222d32;
-    height: 100vw;
+    height: 100vh;
+    overflow: hidden;
 }
 
 #menu-lateral a {
@@ -21,13 +23,13 @@ input[type="file"] {
 }
 #menu-lateral a:hover {
     background-color: crimson;
-    border-left: 4px solid midnightblue;
+    border-left: 4px solid gold;
 }
 
 #menu-lateral a.active {
     background-color: crimson;
     color: white;
-    border-left: 4px solid midnightblue;
+    border-left: 4px solid gold;
 }
 
 #conteudo {
@@ -81,15 +83,15 @@ td {
 }
 
 .info-titulo {
-    min-height: 90px;
+    min-height: 10vh;
 }
 
 .info-conteudo {
-    min-height: 450px;
+    min-height: 40vh;
 }
 
 .info-detalhes {
-    min-height: 350px;
+    min-height: 30vh;
 }
 
 .sobre {
@@ -104,7 +106,27 @@ td {
 @media (max-width: 766px) {
     #menu-lateral {
         background-color: #222d32;
-        height:45vh;
+        height: 45vh;
     }
 }
 
+.loader {
+    border: 16px solid #f3f3f3; /* Light grey */
+    border-top: 16px solid blue;
+    border-right: 16px solid green;
+    border-bottom: 16px solid red;
+    border-left: 16px solid pink;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

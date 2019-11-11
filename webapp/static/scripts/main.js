@@ -2,7 +2,7 @@ $(document).ready(function () {
 
     $('#arquivo').change(function (e) {
         var fileName = e.target.files[0].name;
-        console.log(fileName);
+        console.log(e.target.files[0]);
         
     });
 
@@ -12,17 +12,30 @@ $(document).ready(function () {
         window.location.href = url
     });
 
+    $(window).on('load', function () {
+   
+    })
+
 
     loadClassActive();
   
 })
+
+function work() { /*...*/ }
+
+if (document.readyState == 'loading') {
+    // loading yet, wait for the event
+    document.addEventListener('DOMContentLoaded', work);
+} else {
+    // DOM is ready!
+    work();
+}
 
 
 function loadClassActive() {
     let page = window.location.pathname;
 
     if (page == '/gauss/') {
-        console.log(page)
         $('#gauss').addClass('active')
     }
     else if (page == '/gaussjordan/') {

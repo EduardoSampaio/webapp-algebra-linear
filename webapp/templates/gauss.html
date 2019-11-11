@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% block title %}APP{% endblock %}
+{% block title %}Eliminação Gaussiana{% endblock %}
 {% block content %}
 
 <div class="col-12">
@@ -11,25 +11,28 @@
             <div class="col-12 m-0 p-0 sobre">
                 <h3>Sobre</h3>
                 <p>
-                A eliminação de Gauss, ou método de escalonamento, é um algoritmo para se resolver sistemas de equações lineares. Este
-                método consiste em aplicar sucessivas operações elementares num sistema linear, para o transformar num sistema de mais
-                fácil resolução, que apresenta exatamente as mesmas soluções que o original.
-                <a target="_blank" rel="noopener noreferrer" href="https://pt.wikipedia.org/wiki/Elimina%C3%A7%C3%A3o_de_Gauss">Saiba mais</a>
+                    A eliminação de Gauss, ou método de escalonamento, é um algoritmo para se resolver sistemas de
+                    equações lineares. Este
+                    método consiste em aplicar sucessivas operações elementares num sistema linear, para o transformar
+                    num sistema de mais
+                    fácil resolução, que apresenta exatamente as mesmas soluções que o original.
+                    <a target="_blank" rel="noopener noreferrer"
+                        href="https://pt.wikipedia.org/wiki/Elimina%C3%A7%C3%A3o_de_Gauss">Saiba mais</a>
                 </p>
             </div>
 
-            <div class="col-12">   
+            <div class="col-12">
                 <form class="form-group" action="{% url 'index' %}" method="POST" enctype="multipart/form-data">
-                        {{ form.file }}
-                        {% csrf_token %}
-                        <input type="submit" value="Executar">
-                        <input type="file" name="file" id="arquivo"/>                    
-                <form>          
+                    {{ form.file }}
+                    {% csrf_token %}
+                    <input type="submit" value="Executar">
+                    <input type="file" name="file" id="arquivo" />              
+                <form>
             </div>
         </div>
     </div>
     <div class="info info-detalhes">
-        <label for="">Resultado: {{resultado}}</label>
+        <h3>Resultado {{resultado}}</h3>
     </div>
 </div>
 {% endblock %}

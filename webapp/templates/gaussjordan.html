@@ -1,12 +1,29 @@
 {% extends 'base.html' %}
-{% block title %}APP{% endblock %}
+{% block title %}Eliminação Gauss Jordan{% endblock %}
 {% block content %}
 
 <div class="col-12 ">
     <div class="info info-titulo">
-    <h2>Gauss Jordan</h2>
+    <h2>Eliminação Gauss Jordan</h2>
     </div>
-    <div class="info info-conteudo"></div>
-    <div class="info info-detalhes"></div>
+    <div class="info info-conteudo">
+        <div class="col-12">
+            <div class="col-12 m-0 p-0 sobre">
+                <h3>Sobre</h3>              
+            </div>
+    
+            <div class="col-12">
+                <form class="form-group" action="{% url 'gaussjordan' %}" method="POST" enctype="multipart/form-data">
+                    {{ form.file }}
+                    {% csrf_token %}
+                    <input type="submit" value="Executar">
+                    <input type="file" name="file" id="arquivo" />
+                    <form>
+            </div>
+        </div>   
+    </div>
+    <div class="info info-detalhes">
+        <h3>Resultado {{resultado}}</h3>
+    </div>
 </div>
 {% endblock %}
