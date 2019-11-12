@@ -12,10 +12,6 @@ $(document).ready(function () {
         window.location.href = url
     });
 
-    $(window).on('load', function () {
-   
-    })
-
 
     loadClassActive();
   

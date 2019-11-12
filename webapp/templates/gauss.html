@@ -8,7 +8,7 @@
     </div>
     <div class="info info-conteudo">
         <div class="col-12">
-            <div class="col-12 m-0 p-0 sobre">
+            {% comment %} <div class="col-12 m-0 p-0 sobre">
                 <h3>Sobre</h3>
                 <p>
                     A eliminação de Gauss, ou método de escalonamento, é um algoritmo para se resolver sistemas de
@@ -19,20 +19,35 @@
                     <a target="_blank" rel="noopener noreferrer"
                         href="https://pt.wikipedia.org/wiki/Elimina%C3%A7%C3%A3o_de_Gauss">Saiba mais</a>
                 </p>
-            </div>
+            </div> {% endcomment %}
 
             <div class="col-12">
-                <form class="form-group" action="{% url 'index' %}" method="POST" enctype="multipart/form-data">
+                <form class="form-group" action="{% url 'gauss' %}" method="POST" enctype="multipart/form-data">
                     {{ form.file }}
                     {% csrf_token %}
                     <input type="submit" value="Executar">
-                    <input type="file" name="file" id="arquivo" />              
+                    <input type="file" name="file" id="arquivo" required/>              
                 <form>
             </div>
         </div>
     </div>
     <div class="info info-detalhes">
-        <h3>Resultado {{resultado}}</h3>
+        <h3>Resultado {{resultado.resultado}}</h3>
+        <p>{{resultado.tempo}}</p>
+
+        <div class="col">
+            <table>
+                {% for row in resultado.triangular %}
+                <tr>
+                    {% for cell in row %}
+                    <td>
+                        {{ cell }}
+                    </td>
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
     </div>
 </div>
 {% endblock %}

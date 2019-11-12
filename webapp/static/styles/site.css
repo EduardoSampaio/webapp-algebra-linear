@@ -96,11 +96,11 @@ td {
 
 .sobre {
     font-size: 1em;
-    min-height: 300px;
+    min-height: 10vh;
 }
 
 .entrada {
-    min-height: 200px;
+    min-height: 10px;
 }
 
 @media (max-width: 766px) {
