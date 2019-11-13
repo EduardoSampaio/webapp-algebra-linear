@@ -1,7 +1,8 @@
 
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import redirect, render
 from webapp.metodos.gauss import Gauss
+from django.urls import reverse
 
 
 import numpy as np
@@ -20,8 +21,7 @@ def gauss(request):
     if request.method == 'POST':
         g = Gauss()
         matriz = readCSV(request)
-        resultado = g.executar(matriz)
-        matriz = readCSV(request)
+        resultado = g.executar(matriz)  
         return render(request, 'gauss.html', {'resultado': resultado})
     return render(request, 'gauss.html')
 

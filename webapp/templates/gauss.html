@@ -26,8 +26,9 @@
                     {{ form.file }}
                     {% csrf_token %}
                     <input type="submit" value="Executar">
-                    <input type="file" name="file" id="arquivo" required/>              
-                <form>
+                    <button type="button" id="limpar">Limpar</button>
+                    <input type="file" name="file" id="arquivo" required />
+                    <form>
             </div>
         </div>
     </div>
@@ -35,7 +36,21 @@
         <h3>Resultado {{resultado.resultado}}</h3>
         <p>{{resultado.tempo}}</p>
 
-        <div class="col">
+        <!-- <div class="col-md-4">
+            <table>
+                {% for row in resultado.original %}
+                <tr>
+                    {% for cell in row %}
+                    <td>
+                        {{ cell }}
+                    </td>
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+
+        <div class="col-md-4">
             <table>
                 {% for row in resultado.triangular %}
                 <tr>
@@ -47,7 +62,7 @@
                 </tr>
                 {% endfor %}
             </table>
-        </div>
+        </div> -->
     </div>
 </div>
 {% endblock %}

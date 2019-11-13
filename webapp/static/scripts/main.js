@@ -8,8 +8,8 @@ $(document).ready(function () {
 
     $('#limpar').click(function(){
         $('#arquivo').val('');
-      //  let url =  window.location.hostname
-        window.location.href = url
+        url = window.location.origin + window.location.pathname;
+        window.location.href = url;
     });
 
 

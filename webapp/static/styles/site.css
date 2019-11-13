@@ -60,21 +60,22 @@ table {
     -moz-border-radius: 25px;
     border-radius: 25px;
     margin: auto;
+    box-sizing: border-box;
 }
 
 td {
-    padding: 35px;
+    padding: 22px;
 }
 
 .info {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     font-size: 20px;
-    line-height: 2;
+   /* line-height: 2;*/
     color: #333;
     font-weight: 500;
     box-sizing: border-box;
     display: block;
-    min-height: 90px;
+    min-height: 20vh;
     background: #fff;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
     border-radius: 2px;

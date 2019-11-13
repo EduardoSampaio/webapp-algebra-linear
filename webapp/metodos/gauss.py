@@ -62,12 +62,13 @@ class Gauss:
         return x
 
     def executar(self, m):
-        ini = time.time()  
-        self.gauss(m)
+        ini = time.time()
+        original = m.copy()
+        triangular = self.gauss(m)
         solucao = self.resolver(m)
         fim = time.time()
-        strTime = 'Tempo Decorrido {:0.3f}'.format(fim-ini)
-        resultado = Resultado(m,solucao,strTime)
+        strTime = 'Tempo de Execução {:0.3f}'.format(fim-ini)
+        resultado = Resultado(original, triangular, solucao, strTime)
         return resultado
         
 
