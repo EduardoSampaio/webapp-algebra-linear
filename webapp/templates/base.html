@@ -16,24 +16,21 @@
 
 <body>
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="row">
-                    <!-- <div class="loader"></div> -->
-                    <nav class="col-md-2 col-sm-12 m-0 p-0" id="menu-lateral">
-                        <div class="label-menu">
-                            <h2><img src="{% static 'img/algebra.png'%}" height="40px" width="40px" />Álgebra Linear
-                            </h2>
-                        </div>
-                        <a href="{% url 'gauss' %}" id="gauss">Eliminação Gaussiana</a>
-                        <a href="{% url 'gaussjordan' %}" id="jordan">Eliminação Gauss Jordan</a>
-                        <a href="{% url 'fatoracaolu' %}" id="fatoracao">Fatoração LU</a>
-                    </nav>
-                    <div class="col-md-10 col-sm-12 m-0 p-0">
-                        <div id="conteudo">
-                            {% block content %}
-                            {% endblock %}
-                        </div>
+        <div class="col-md-12 m-0 p-0">
+            <div class="row">
+                <div class="col-md-2 col-lg-2  col-sm-12 m-0 p-0" id="menu-lateral">
+                    <div class="label-menu">
+                        <h2><img src="{% static 'img/algebra.png'%}" height="40px" width="40px" />Álgebra Linear
+                        </h2>
+                    </div>
+                    <a href="{% url 'gauss' %}" id="gauss">Eliminação Gaussiana</a>
+                    <a href="{% url 'gaussjordan' %}" id="jordan">Eliminação Gauss Jordan</a>
+                    <a href="{% url 'fatoracaolu' %}" id="fatoracao">Fatoração LU</a>
+                </div>
+                <div class="col-md-10 col-lg-10 col-sm-12 m-0 p-0">
+                    <div id="conteudo">
+                        {% block content %}
+                        {% endblock %}
                     </div>
                 </div>
             </div>
@@ -45,7 +42,7 @@
         <!-- <script id="MathJax-script" async src="{%static 'libs/tex-mml-chtml.js'%}"></script> -->
         <script type="text/javascript" id="MathJax-script" async
             src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
-            </script>
+        </script>
 </body>
 
 </html>

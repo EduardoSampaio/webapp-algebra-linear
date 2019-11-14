@@ -1,3 +1,9 @@
+:root{
+    --color-darkness:#222d32;
+    --color-white:#ecf0f5
+}
+
+
 body {
     font-family: "Roboto", sans-serif;
     max-height: 100%;
@@ -9,14 +15,12 @@ input[type="file"] {
 }
 
 #menu-lateral {
-    box-sizing: border-box;
-    background-color: #222d32;
-    height: 100vh;
-    overflow: hidden;
+    overflow: auto;
+    background-color: var(--color-darkness);
 }
 
 #menu-lateral a {
-    color: #ecf0f5;
+    color: var(--color-white);
     display: block;
     padding: 12px;
     text-decoration: none;
@@ -33,7 +37,7 @@ input[type="file"] {
 }
 
 #conteudo {
-    background-color: #ecf0f5;
+    background-color: var(--color-white);
     height: 100vh;
 }
 
@@ -59,8 +63,6 @@ table {
     -webkit-border-radius: 25px;
     -moz-border-radius: 25px;
     border-radius: 25px;
-    margin: auto;
-    box-sizing: border-box;
 }
 
 td {
@@ -68,66 +70,19 @@ td {
 }
 
 .info {
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     font-size: 20px;
-   /* line-height: 2;*/
     color: #333;
     font-weight: 500;
-    box-sizing: border-box;
-    display: block;
-    min-height: 20vh;
     background: #fff;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
     border-radius: 2px;
-    padding: 20px;
+    padding: 25px;
     margin-bottom: 10px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    -o-border-radius: 2px;
 }
 
-.info-titulo {
-    min-height: 10vh;
-}
 
-.info-conteudo {
-    min-height: 40vh;
-}
 
-.info-detalhes {
-    min-height: 30vh;
-}
-
-.sobre {
-    font-size: 1em;
-    min-height: 10vh;
-}
-
-.entrada {
-    min-height: 10px;
-}
-
-@media (max-width: 766px) {
-    #menu-lateral {
-        background-color: #222d32;
-        height: 45vh;
-    }
-}
-
-.loader {
-    border: 16px solid #f3f3f3; /* Light grey */
-    border-top: 16px solid blue;
-    border-right: 16px solid green;
-    border-bottom: 16px solid red;
-    border-left: 16px solid pink;
-    border-radius: 50%;
-    width: 120px;
-    height: 120px;
-    animation: spin 2s linear infinite;
-}
-
-@keyframes spin {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
-}
