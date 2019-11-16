@@ -13,7 +13,7 @@
 
 - venv/Scripts/activate (Windows)
 
-###  Instalando dependencias 
+###  Instalando dependências 
 - pip install -r requirements.txt
 
 ### rodando app

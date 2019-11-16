@@ -4,26 +4,53 @@
 
 <div class="col-12 ">
     <div class="info info-titulo">
-    <h2>Eliminação Gauss Jordan</h2>
+        <h2>Eliminação Gauss Jordan</h2>
     </div>
-    <div class="info info-conteudo">
-        <div class="col-12">
-            <div class="col-12 m-0 p-0 sobre">
-                <h3>Sobre</h3>              
+    <div class="info">
+        <div class="col-12 m-0 p-0">
+            <div class="row">
+                <div class="col-12">
+                    <form class="form-group" action="{% url 'gaussjordan' %}" method="POST" enctype="multipart/form-data">
+                        {{ form.file }}
+                        {% csrf_token %}
+                        <input type="submit" value="Executar">
+                        <button type="button" id="limpar">Limpar</button>
+                        <input type="file" name="file" id="arquivo" required accept=".csv"/>
+                        <form>
+                </div>
+                <div class="col-md-4">
+                    <h3>Solução {{resultado.resultado}}</h3>
+                    <p>{{resultado.tempo}}</p>
+                </div>
+                <div class="col-md-4">
+                    <table>
+                        {% for row in resultado.original %}
+                        <tr>
+                            {% for cell in row %}
+                            <td>
+                                {{ cell }}
+                            </td>
+                            {% endfor %}
+                        </tr>
+                        {% endfor %}
+                    </table>
+                </div>
+
+                <div class="col-md-4">
+                    <table>
+                        {% for row in resultado.triangular %}
+                        <tr>
+                            {% for cell in row %}
+                            <td>
+                                {{ cell }}
+                            </td>
+                            {% endfor %}
+                        </tr>
+                        {% endfor %}
+                    </table>
+                </div>
             </div>
-    
-            <div class="col-12">
-                <form class="form-group" action="{% url 'gaussjordan' %}" method="POST" enctype="multipart/form-data">
-                    {{ form.file }}
-                    {% csrf_token %}
-                    <input type="submit" value="Executar">
-                    <input type="file" name="file" id="arquivo" />
-                    <form>
-            </div>
-        </div>   
-    </div>
-    <div class="info info-detalhes">
-        <h3>Resultado {{resultado}}</h3>
+        </div>
     </div>
 </div>
 {% endblock %}

@@ -1,8 +1,14 @@
 $(document).ready(function () { 
 
     $('#arquivo').change(function (e) {
-        var fileName = e.target.files[0].name;
-        console.log(e.target.files[0]);
+        let fileName = e.target.files[0].name;
+        let extensao = fileName.substring(fileName.length - 4, fileName.length)
+        
+        console.log("EXTENSAO:" + extensao)
+        if (extensao != '.csv') {
+            alert('Somente e aceito arquivos do tipo .csv !')
+            $('#arquivo').val('');
+        }
         
     });
 

@@ -2,6 +2,7 @@
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import redirect, render
 from webapp.metodos.gauss import Gauss
+from webapp.metodos.gaussjordan import GaussJordan
 from django.urls import reverse
 
 
@@ -11,9 +12,6 @@ import io
 
 
 def index(request):
-    if request.method == 'POST':
-        matriz = readCSV(request)
-        return render(request, 'index.html', {'matriz': matriz})
     return render(request, 'index.html')
 
 
@@ -21,12 +19,17 @@ def gauss(request):
     if request.method == 'POST':
         g = Gauss()
         matriz = readCSV(request)
-        resultado = g.executar(matriz)  
+        resultado = g.executar(matriz)
         return render(request, 'gauss.html', {'resultado': resultado})
     return render(request, 'gauss.html')
 
 
 def gaussjordan(request):
+    if request.method == 'POST':
+        g = GaussJordan()
+        matriz = readCSV(request)
+        resultado = g.executar(matriz)
+        return render(request, 'gaussjordan.html', {'resultado': resultado})
     return render(request, 'gaussjordan.html')
 
 
@@ -39,3 +42,12 @@ def readCSV(request):
     io_string = io.StringIO(data)
     matriz = np.loadtxt(io_string, delimiter=',', dtype=int)
     return matriz
+
+
+def validacaoMatriz(matriz):
+    linha = len(matriz)
+    coluna = len(matriz[0])
+    print("Linha", linha)
+    print("coluna", coluna)
+    if linha != coluna - 1:
+        print("Erros matriz não quadrada")
