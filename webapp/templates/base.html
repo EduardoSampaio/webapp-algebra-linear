@@ -23,9 +23,18 @@
                         <h2><img src="{% static 'img/algebra.png'%}" height="40px" width="40px" />Álgebra Linear
                         </h2>
                     </div>
-                    <a href="{% url 'gauss' %}" id="gauss">Eliminação Gaussiana</a>
-                    <a href="{% url 'gaussjordan' %}" id="jordan">Eliminação Gauss Jordan</a>
-                    <a href="{% url 'fatoracaolu' %}" id="fatoracao">Fatoração LU</a>
+                    <ul class="unstyled list-hover-slide">
+                        <li>
+                            <a href="{% url 'gauss' %}" id="gauss">Eliminação Gaussiana</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'gaussjordan' %}" id="jordan">Eliminação Gauss Jordan</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'fatoracaolu' %}" id="fatoracao">Fatoração LU</a>
+                        </li>
+
+                    </ul>
                 </div>
                 <div class="col-md-10 col-lg-10 col-sm-12 m-0 p-0">
                     <div id="conteudo">
@@ -42,7 +51,7 @@
         <!-- <script id="MathJax-script" async src="{%static 'libs/tex-mml-chtml.js'%}"></script> -->
         <script type="text/javascript" id="MathJax-script" async
             src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
-        </script>
+            </script>
 </body>
 
 </html>

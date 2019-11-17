@@ -1,6 +1,7 @@
 
 import time
 from .resultado import Resultado
+from .matrizIncompativelError import MatrizIncompativelError
 
 class GaussJordan:
 
@@ -10,14 +11,13 @@ class GaussJordan:
     def gaussjordan(self, m):
         nLinhas = len(m)
         nColunas = len(m[0])
-        print(nLinhas, nColunas)
+        #print(nLinhas, nColunas)
         i = 0
         while(i < nLinhas):
             if(m[i][i] == 0):
-                if(self.trocaLinhas(m, i)):
-                    print("escalonar")
-                else:
-                    print("não é possível resolver o sistema")
+                if(not self.trocaLinhas(m, i)):
+                    raise MatrizIncompativelError(
+                        'não é possível resolver o sistema')
             # imprimir(m)
             self.zerarInf(m, i)
             i = i+1
@@ -60,6 +60,15 @@ class GaussJordan:
                 x = x+1
             p = p - 1
 
+    def trocaLinhas(self, m, i):
+        x = i+1
+        nLinhas = len(m)
+        while(x < nLinhas):
+            if(m[x][x] != 0):
+                m[i], m[x] = m[x], m[i]
+                return True
+        return False
+
     def resolver(self, m):
         n = len(m)
         x = [0 for i in range(n)]
@@ -80,10 +89,10 @@ class GaussJordan:
         return resultado
 
 
-if __name__ == "__main__":
-    matriz = [[1, 2, -4, -4],
-              [2, 5, -9, -10],
-              [3, -2, 3, 11]]
+# if __name__ == "__main__":
+#     matriz = [[1, 2, -4, -4],
+#               [2, 5, -9, -10],
+#               [3, -2, 3, 11]]
 
-    g = GaussJordan()
-    print(g.executar(matriz))
+#     g = GaussJordan()
+#     print(g.executar(matriz))

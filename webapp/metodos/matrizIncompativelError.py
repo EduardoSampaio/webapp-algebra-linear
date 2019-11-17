@@ -1,0 +1,4 @@
+
+
+class MatrizIncompativelError(Exception):
+    pass

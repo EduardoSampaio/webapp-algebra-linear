@@ -1,8 +1,9 @@
-:root{
-    --color-darkness:#222d32;
-    --color-white:#ecf0f5
+:root {
+    --color-darkness: #222d32;
+    --color-white: #ecf0f5;
 }
 
+ul,li{margin: 0; padding: 0; list-style: none;}
 
 body {
     font-family: "Roboto", sans-serif;
@@ -26,14 +27,14 @@ input[type="file"] {
     text-decoration: none;
 }
 #menu-lateral a:hover {
-    background-color: crimson;
-    border-left: 4px solid gold;
+    background-color: darkslategrey;
+    border-right: 4px solid #df4500;
 }
 
 #menu-lateral a.active {
-    background-color: crimson;
+    background-color: darkslategrey;
     color: white;
-    border-left: 4px solid gold;
+    border-right: 4px solid #df4500;
 }
 
 #conteudo {
@@ -42,7 +43,7 @@ input[type="file"] {
 }
 
 .label-menu {
-    padding: 50px;
+    padding: 23px;
     color: white;
     background-color: #1b2022;
     border-bottom: 1 solid #1b2022;
@@ -84,6 +85,3 @@ td {
     -ms-border-radius: 2px;
     -o-border-radius: 2px;
 }
-
-
-

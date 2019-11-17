@@ -2,6 +2,7 @@
 import time
 
 from .resultado import Resultado
+from .matrizIncompativelError import MatrizIncompativelError
 
 class Gauss:
 
@@ -14,10 +15,9 @@ class Gauss:
         i = 0
         while(i < nLinhas):
             if(m[i][i] == 0):
-                if(self.trocaLinhas(m, i)):
-                    print("escalonar")
-                else:
-                    print("não é possível resolver o sistema")
+                if(not self.trocaLinhas(m, i)):
+                    raise MatrizIncompativelError(
+                        'não é possível resolver o sistema')                  
             #self.imprimir(m)
             self.zerar(m, i)
             i = i+1
@@ -40,7 +40,7 @@ class Gauss:
             mult = -m[x][i]/m[i][i]
             m[x][i] = (m[i][i]*mult)+m[x][i]
             y = i+1
-            self.imprimir(m)
+            #self.imprimir(m)
             while(y < nColunas):
                 m[x][y] = (m[i][y]*mult)+m[x][y]
                 y = y+1
@@ -70,13 +70,3 @@ class Gauss:
         strTime = 'Tempo de Execução {:0.3f}'.format(fim-ini)
         resultado = Resultado(original, triangular, solucao, strTime)
         return resultado
-        
-
-
-if __name__ == "__main__":
-    matriz = [[1, 2, -4, -4],
-              [2, 5, -9, -10],
-              [3, -2, 3, 11]]    
-  
-    g = Gauss()
-    g.executar(matriz)

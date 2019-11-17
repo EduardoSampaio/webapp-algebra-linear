@@ -19,8 +19,11 @@
                         <form>
                 </div>
                 <div class="col-md-4">
-                    <h3>Solução {{resultado.resultado}}</h3>
-                    <p>{{resultado.tempo}}</p>
+                    {% if resultado %}
+                        <h3>Solução {{resultado.resultado}}</h3>
+                        <h3>{{msg}}</h3>
+                        <p>{{resultado.tempo}}</p>
+                    {% endif %}
                 </div>
                 <div class="col-md-4">
                     <table>

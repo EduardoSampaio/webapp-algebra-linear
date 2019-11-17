@@ -18,9 +18,16 @@
                     <input type="file" name="file" id="arquivo" required  accept=".csv"/>
                     <form>
                  </div>
+                <hr />
                 <div class="col-md-4">
-                            <h3>Solução {{resultado.resultado}}</h3>
+                        {% if resultado.resultado %}
+                            <h3>Solução {{resultado.resultado}}</h3>                         
                             <p>{{resultado.tempo}}</p>
+                        {% elif msg%}
+                            <div class="alert alert-danger" role="alert">
+                                {{msg}}
+                            </div>
+                        {% endif %}
                  </div>
                 <div class="col-md-4">
                     <table>
