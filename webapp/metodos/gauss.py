@@ -67,6 +67,6 @@ class Gauss:
         triangular = self.gauss(m)
         solucao = self.resolver(m)
         fim = time.time()
-        strTime = 'Tempo de Execução {:0.3f}'.format(fim-ini)
+        strTime = 'Tempo de Execução: {:0.3f}'.format(fim-ini)
         resultado = Resultado(original, triangular, solucao, strTime)
         return resultado

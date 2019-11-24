@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
     <link href="{% static 'favicon.ico' %}" rel="icon" type="image/x-icon" />
     <link rel="stylesheet" href="{% static 'libs/bootstrap/css/bootstrap.css' %}">
-    <link rel="stylesheet" href="{% static 'libs/fontawesome/fontawesome.min.css' %}">
+    <!-- <link rel="stylesheet" href="{% static 'libs/fontawesome/css/all.css' %}"> -->
     <link rel="stylesheet" href="{% static 'styles/site.css' %}">
 </head>
 
@@ -23,7 +23,7 @@
                         <h2><img src="{% static 'img/algebra.png'%}" height="40px" width="40px" />Álgebra Linear
                         </h2>
                     </div>
-                    <ul class="unstyled list-hover-slide">
+                    <ul>
                         <li>
                             <a href="{% url 'gauss' %}" id="gauss">Eliminação Gaussiana</a>
                         </li>
@@ -46,6 +46,7 @@
         </div>
 
         <script src="{% static 'libs/jquery/jquery-3.4.1.js' %}"></script>
+        <!-- <script defer src="{% static 'libs/fontawesome/js/all.js' %}"></script> -->
         <script src="{% static 'scripts/main.js' %}"></script>
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
         <!-- <script id="MathJax-script" async src="{%static 'libs/tex-mml-chtml.js'%}"></script> -->

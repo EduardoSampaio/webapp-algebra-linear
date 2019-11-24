@@ -3,8 +3,6 @@ $(document).ready(function () {
     $('#arquivo').change(function (e) {
         let fileName = e.target.files[0].name;
         let extensao = fileName.substring(fileName.length - 4, fileName.length)
-        
-        console.log("EXTENSAO:" + extensao)
         if (extensao != '.csv') {
             alert('Somente e aceito arquivos do tipo .csv !')
             $('#arquivo').val('');
@@ -12,12 +10,12 @@ $(document).ready(function () {
         
     });
 
-    $('#limpar').click(function(){
+    $('#limpar').click(function () {
+        console.log("LIMPAR");
         $('#arquivo').val('');
         url = window.location.origin + window.location.pathname;
-        window.location.href = url;
+        window.location.href = url; 
     });
-
 
     loadClassActive();
   
