@@ -10,10 +10,11 @@ body {
     max-height: 100%;
 }
 
-input[type="file"] {
-    color: transparent;
-    /*direction: rtl;  */
-}
+
+/* input[type="file"] {
+   color: transparent;
+  direction: rtl; 
+} */
 
 #menu-lateral {
     overflow: auto;
@@ -85,3 +86,4 @@ td {
     -ms-border-radius: 2px;
     -o-border-radius: 2px;
 }
+

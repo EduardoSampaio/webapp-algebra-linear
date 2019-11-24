@@ -7,29 +7,30 @@
         <h2>Eliminação Gaussiana</h2>
     </div>
     <div class="info">
-        <div class="col-12 m-0 p-0">
+        <div class="col-12">
             <div class="row">
-               <div class="col-12">
-                <form class="form-group" action="{% url 'gauss' %}" method="POST" enctype="multipart/form-data">
-                    {{ form.file }}
-                    {% csrf_token %}
-                    <input type="submit" value="Executar">
-                    <button type="button" id="limpar">Limpar</button>
-                    <input type="file" name="file" id="arquivo" required  accept=".csv"/>
+                <div class="col-md-12">
+                    <form class="form-group" action="{% url 'gauss' %}" method="POST" enctype="multipart/form-data">
+                        {{ form.file }}
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <button type="submit">Executar</button>
+                            <button type="button" id="limpar">Limpar</button>  
+                            <input type="checkbox" class="" name="pivoteamento" id="pivoteamento"/>                     
+                            <label class="" for="pivoteamento">Pivoteamento</label> 
+                        </div>
+                         <div class="form-group">
+                            <input type="file" name="file" id="arquivo"  required  accept=".csv"/>      
+                        </div>                 
                     <form>
-                 </div>
-                <hr />
-                <div class="col-md-4">
-                        {% if resultado.resultado %}
-                            <h3>Solução {{resultado.resultado}}</h3>                         
-                            <p>{{resultado.tempo}}</p>
-                        {% elif msg%}
-                            <div class="alert alert-danger" role="alert">
-                                {{msg}}
-                            </div>
-                        {% endif %}
-                 </div>
-                <div class="col-md-4">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="info">
+        <div class="col-12">
+            <div class="row">
+                <div class="col-md-5">
                     <table>
                         {% for row in resultado.original %}
                         <tr>
@@ -42,8 +43,7 @@
                         {% endfor %}
                     </table>
                 </div>
-
-                <div class="col-md-4">
+                <div class="col-md-5">
                     <table>
                         {% for row in resultado.triangular %}
                         <tr>
@@ -55,6 +55,16 @@
                         </tr>
                         {% endfor %}
                     </table>
+                </div>
+                <div class="col-md-4">
+                    {% if resultado.resultado %}
+                    <h3>Solução: {{resultado.resultado}}</h3>
+                    <p>{{resultado.tempo}}</p>
+                    {% elif msg%}
+                    <div class="alert alert-danger" role="alert">
+                        {{msg}}
+                    </div>
+                    {% endif %}
                 </div>
             </div>
         </div>
