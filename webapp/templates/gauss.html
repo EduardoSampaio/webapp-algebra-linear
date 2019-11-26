@@ -15,8 +15,9 @@
                         {% csrf_token %}
                         <div class="form-group">
                             <button type="submit">Executar</button>
-                            <button type="button" id="limpar">Limpar</button>  
-                            <input type="checkbox" class="" name="pivoteamento" id="pivoteamento"/>                     
+                            <button type="button" id="limpar">Limpar</button>      
+                            <input type="checkbox" class="" name="pivoteamento" id="pivoteamento"
+                            {% if resultado.pivoteamento %} checked {% endif %}  />                   
                             <label class="" for="pivoteamento">Pivoteamento</label> 
                         </div>
                          <div class="form-group">
