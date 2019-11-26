@@ -20,7 +20,7 @@ def gauss(request):
     if request.method == 'POST':
         try:
             g = Gauss()
-            matriz = readCSV(request)
+            matriz = readCSV(request)          
             resultado = g.executar(matriz)
             return render(request, 'gauss.html', {'resultado': resultado})
         except MatrizIncompativelError as e:
@@ -33,6 +33,7 @@ def gaussjordan(request):
         try:
             g = GaussJordan()
             matriz = readCSV(request)
+            pivo  = isPivoteamento(request)
             resultado = g.executar(matriz)
             return render(request, 'gaussjordan.html', {'resultado': resultado})
         except MatrizIncompativelError as e:
@@ -50,11 +51,8 @@ def readCSV(request):
     matriz = np.loadtxt(io_string, delimiter=',', dtype=int)
     return matriz
 
-
-def validacaoMatriz(matriz):
-    linha = len(matriz)
-    coluna = len(matriz[0])
-    print("Linha", linha)
-    print("coluna", coluna)
-    if linha != coluna - 1:
-        print("Erros matriz não quadrada")
+def isPivoteamento(request):
+    if request.POST.get('pivoteamento', '') == 'on':
+        return True
+    else:
+        return False

@@ -7,4 +7,5 @@ class Resultado:
        self.triangular = triangular
        self.resultado = resultado
        self.tempo = tempo
+       self.pivoteamento = True
 
