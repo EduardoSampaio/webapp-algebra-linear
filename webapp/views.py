@@ -33,7 +33,6 @@ def gaussjordan(request):
         try:
             g = GaussJordan()
             matriz = readCSV(request)
-            pivo  = isPivoteamento(request)
             resultado = g.executar(matriz)
             return render(request, 'gaussjordan.html', {'resultado': resultado})
         except MatrizIncompativelError as e:
