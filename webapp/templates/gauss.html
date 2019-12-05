@@ -15,12 +15,9 @@
                         {% csrf_token %}
                         <div class="form-group">
                             <button type="submit">Executar</button>
-                            <button type="button" id="limpar">Limpar</button>      
-                            {% comment %} <input type="checkbox" class="" name="pivoteamento" id="pivoteamento"
-                            {% if resultado.pivoteamento %} checked {% endif %}  />                   
-                            <label class="" for="pivoteamento">Pivoteamento</label>  {% endcomment %}
-                            <input type="file" name="file" id="arquivo"  required  accept=".csv"/>      
-                        </div>                 
+                            <button type="button" id="limpar">Limpar</button>
+                            <input type="file" name="file" id="arquivo" required accept=".csv" />
+                        </div>
                     <form>
                 </div>
             </div>
@@ -30,6 +27,9 @@
         <div class="col-12">
             <div class="row">
                 <div class="col-md-5">
+                    {% if resultado.resultado %}
+                    <p>Original</p>
+                    {% endif %}
                     <table>
                         {% for row in resultado.original %}
                         <tr>
@@ -41,8 +41,12 @@
                         </tr>
                         {% endfor %}
                     </table>
+
                 </div>
                 <div class="col-md-5">
+                    {% if resultado.resultado %}
+                    <p>Escalonada</p>
+                    {% endif %}
                     <table>
                         {% for row in resultado.triangular %}
                         <tr>
@@ -54,8 +58,9 @@
                         </tr>
                         {% endfor %}
                     </table>
+
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-12">
                     {% if resultado.resultado %}
                     <h3>Solução: {{resultado.resultado}}</h3>
                     <p>{{resultado.tempo}}</p>

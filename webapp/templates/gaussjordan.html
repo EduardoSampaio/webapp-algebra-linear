@@ -25,6 +25,9 @@
         <div class="col-12">
             <div class="row">
                 <div class="col-md-5">
+                    {% if resultado.resultado %}
+                    <p>Original</p>
+                    {% endif %}
                     <table>
                         {% for row in resultado.original %}
                         <tr>
@@ -36,8 +39,12 @@
                         </tr>
                         {% endfor %}
                     </table>
+    
                 </div>
                 <div class="col-md-5">
+                    {% if resultado.resultado %}
+                    <p>Escalonada</p>
+                    {% endif %}
                     <table>
                         {% for row in resultado.triangular %}
                         <tr>
@@ -49,8 +56,9 @@
                         </tr>
                         {% endfor %}
                     </table>
+    
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-12">
                     {% if resultado.resultado %}
                     <h3>Solução: {{resultado.resultado}}</h3>
                     <p>{{resultado.tempo}}</p>
