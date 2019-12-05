@@ -1,8 +1,10 @@
 
 import time
+import timeit
 
 from .resultado import Resultado
 from .matrizIncompativelError import MatrizIncompativelError
+
 
 class Gauss:
 
@@ -11,14 +13,12 @@ class Gauss:
 
     def gauss(self, m):
         nLinhas = len(m)
-        # print(nLinhas,nColunas)
         i = 0
         while(i < nLinhas):
             if(m[i][i] == 0):
                 if(not self.trocaLinhas(m, i)):
                     raise MatrizIncompativelError(
-                        'não é possível resolver o sistema')                  
-            #self.imprimir(m)
+                        'não é possível resolver o sistema')
             self.zerar(m, i)
             i = i+1
         return m
@@ -40,16 +40,10 @@ class Gauss:
             mult = -m[x][i]/m[i][i]
             m[x][i] = (m[i][i]*mult)+m[x][i]
             y = i+1
-            #self.imprimir(m)
             while(y < nColunas):
                 m[x][y] = (m[i][y]*mult)+m[x][y]
                 y = y+1
             x = x+1
-
-    def imprimir(self, m):
-        for i in range(len(m)):
-            print(m[i])
-        print("\n")
 
     def resolver(self, m):
         n = len(m)
@@ -58,7 +52,6 @@ class Gauss:
             x[i] = m[i][n]/m[i][i]
             for k in range(i-1, -1, -1):
                 m[k][n] -= m[k][i] * x[i]
-        #print(x)
         return x
 
     def executar(self, m):

@@ -11,19 +11,15 @@ class GaussJordan:
     def gaussjordan(self, m):
         nLinhas = len(m)
         nColunas = len(m[0])
-        #print(nLinhas, nColunas)
         i = 0
         while(i < nLinhas):
             if(m[i][i] == 0):
                 if(not self.trocaLinhas(m, i)):
                     raise MatrizIncompativelError(
                         'não é possível resolver o sistema')
-            # imprimir(m)
             self.zerarInf(m, i)
             i = i+1
         i = i-1
-        # print("inferior completa i: ",i)
-        # imprimir(m)
         while(i > 0):
             self.zerarSup(m, i)
             i = i-1
@@ -42,14 +38,12 @@ class GaussJordan:
             mult = -m[x][i]/m[i][i]
             m[x][i] = (m[i][i]*mult)+m[x][i]
             y = i+1
-            # imprimir(m)
             while(y < nColunas):
                 m[x][y] = (m[i][y]*mult)+m[x][y]
                 y = y+1
             x = x+1
 
     def zerarSup(self, m, i):
-        # nLinhas = len(m)
         nColunas = len(m[0])
         p = i-1
         while(p >= 0):
@@ -87,12 +81,3 @@ class GaussJordan:
         strTime = 'Tempo de Execução {:0.3f}'.format(fim-ini)
         resultado = Resultado(original, triangular, solucao, strTime)
         return resultado
-
-
-# if __name__ == "__main__":
-#     matriz = [[1, 2, -4, -4],
-#               [2, 5, -9, -10],
-#               [3, -2, 3, 11]]
-
-#     g = GaussJordan()
-#     print(g.executar(matriz))
