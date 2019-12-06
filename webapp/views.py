@@ -3,6 +3,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import redirect, render
 from webapp.metodos.gauss import Gauss
 from webapp.metodos.gaussjordan import GaussJordan
+from webapp.metodos.fatoracaoLu import LU
 from webapp.metodos.matrizIncompativelError import MatrizIncompativelError
 from django.urls import reverse
 
@@ -41,6 +42,14 @@ def gaussjordan(request):
 
 
 def fatoracaolu(request):
+    if request.method == 'POST':
+        try:      
+            matriz = readCSV(request)
+            lu = LU()
+            resultado = lu.executar(matriz)
+            return render(request, 'fatoracaolu.html', {'resultado': resultado})
+        except MatrizIncompativelError as e:
+            return render(request, 'fatoracaolu.html', {'msg': str(e)})
     return render(request, 'fatoracaolu.html')
 
 
