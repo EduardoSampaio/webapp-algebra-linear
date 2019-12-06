@@ -58,9 +58,3 @@ def readCSV(request):
     io_string = io.StringIO(data)
     matriz = np.loadtxt(io_string, delimiter=',', dtype=int)
     return matriz
-
-def isPivoteamento(request):
-    if request.POST.get('pivoteamento', '') == 'on':
-        return True
-    else:
-        return False
