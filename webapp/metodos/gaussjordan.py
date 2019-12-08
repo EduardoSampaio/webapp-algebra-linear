@@ -3,6 +3,7 @@ import time
 from .resultado import Resultado
 from .matrizIncompativelError import MatrizIncompativelError
 
+
 class GaussJordan:
 
     def __init__(self):
@@ -13,10 +14,14 @@ class GaussJordan:
         nColunas = len(m[0])
         i = 0
         while(i < nLinhas):
-            if(m[i][i] == 0):
-                if(not self.trocaLinhas(m, i)):
+            if (m[i][i] == 0):
+                self.trocaLinhas(m, i)
+                if self.sistemaImpossivel(m):
                     raise MatrizIncompativelError(
-                        'não é possível resolver o sistema')
+                        'sistema impossível de resolver!')
+                elif(self.linhaNula(m)):
+                    raise MatrizIncompativelError(
+                        'o sistema possui infinitas soluções!')
             self.zerarInf(m, i)
             i = i+1
         i = i-1
@@ -81,3 +86,23 @@ class GaussJordan:
         strTime = 'Tempo de Execução {:0.3f}'.format(fim-ini)
         resultado = Resultado(original, triangular, solucao, strTime)
         return resultado
+
+    def linhaNula(self, m):
+        linhas = len(m)
+        colunas = len(m[0])
+
+        for i in range(linhas - 1, linhas):
+            for j in range(colunas-1):
+                if m[i][j] != 0:
+                    return False
+        return True
+    
+    def sistemaImpossivel(self, m):
+        linhas = len(m)
+        colunas = len(m[0])
+
+        for i in range(linhas - 1, linhas):
+            for j in range(colunas):
+                if m[i][j] == 0 and m[i][colunas-1] != 0:
+                    return True
+        return False
