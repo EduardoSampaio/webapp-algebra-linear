@@ -71,11 +71,28 @@ class GaussJordan:
     def resolver(self, m):
         n = len(m)
         x = [0 for i in range(n)]
-        for i in range(n-1, -1, -1):
-            x[i] = m[i][n]/m[i][i]
+        fx = ''
+        for i in range(n - 1, -1, -1):
+            if m[i][i] == 0:
+                x[i] = 0
+                fx = 'x_' + str(i + 1)
+                continue
+            x[i] = m[i][n] / m[i][i]
             for k in range(i-1, -1, -1):
                 m[k][n] -= m[k][i] * x[i]
-        return x
+
+        #formatar saída
+        resultado = '\('
+        for i in range(len(x)):
+            if fx != '' and fx != 'x_' + str(i + 1):
+                resultado += '\ x_' + str(i + 1) + '= ' + str(x[i]) + '+' + fx
+            elif fx == 'x_' + str(i + 1):
+                 resultado += '\ x_' + str(i + 1) + '= ' + fx
+            else:
+                resultado += '\ x_' + str(i + 1) + '= ' + str(x[i])
+        resultado += '\)'
+
+        return resultado
 
     def executar(self, m):
         ini = time.time()
