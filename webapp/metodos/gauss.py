@@ -1,6 +1,6 @@
 
 import time
-import timeit
+import copy
 
 from .resultado import Resultado
 from .matrizIncompativelError import MatrizIncompativelError
@@ -62,19 +62,22 @@ class Gauss:
         resultado = '\('
         for i in range(len(x)):
             if fx != '' and fx != 'x_' + str(i + 1):
-                resultado += '\ x_' + str(i + 1) + '= ' + str(x[i]) + '+' + fx
+                resultado += '\ x_' + str(i + 1) + \
+                    '= ' + str("%.1f" % x[i]) + '+' + fx
             elif fx == 'x_' + str(i + 1):
                  resultado += '\ x_' + str(i + 1) + '= ' + fx
             else:    
-                resultado += '\ x_' + str(i + 1) + '= ' + str(x[i])
+                resultado += '\ x_' + str(i + 1) + '= ' + str("%.1f" %  x[i])
         resultado += '\)'
 
         return resultado
 
+
     def executar(self, m):
         ini = time.time()
-        original = m.copy()
+        original = copy.deepcopy(m)
         triangular = self.gauss(m)
+        triangular = copy.deepcopy(triangular)
         solucao = self.resolver(m)
         fim = time.time()
         strTime = 'Tempo de Execução: {:0.3f}'.format(fim-ini)
