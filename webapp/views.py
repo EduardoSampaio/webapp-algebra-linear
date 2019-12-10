@@ -56,5 +56,5 @@ def fatoracaolu(request):
 def readCSV(request):
     data = request.FILES['file'].read().decode('UTF-8')
     io_string = io.StringIO(data)
-    matriz = np.loadtxt(io_string, delimiter=',', dtype=int)
+    matriz = np.loadtxt(io_string, delimiter=',', dtype=float)
     return matriz

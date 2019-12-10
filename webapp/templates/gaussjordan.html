@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block title %}Eliminação Gauss Jordan{% endblock %}
 {% block content %}
-
+{% load humanize %}
 <div class="col-12">
     <div class="info">
         <h2>Eliminação Gauss Jordan</h2>
@@ -33,7 +33,7 @@
                         <tr>
                             {% for cell in row %}
                             <td>
-                                {{ cell }}
+                                {{ cell|floatformat:2|intcomma }}
                             </td>
                             {% endfor %}
                         </tr>
@@ -50,7 +50,7 @@
                         <tr>
                             {% for cell in row %}
                             <td>
-                                {{ cell }}
+                                {{ cell|floatformat:2|intcomma }}
                             </td>
                             {% endfor %}
                         </tr>

@@ -2,8 +2,8 @@
 import time
 import copy
 
-from .resultado import Resultado
-from .matrizIncompativelError import MatrizIncompativelError
+from  .resultado import Resultado
+from  .matrizIncompativelError import MatrizIncompativelError
 
 
 class Gauss:
@@ -18,7 +18,7 @@ class Gauss:
             if (m[i][i] == 0):
                 if self.trocaLinhas(m, i) or self.sistemaImpossivel(m):
                     raise MatrizIncompativelError(
-                        'sistema impossível de resolver!')
+                       'sistema impossível de resolver!')
             self.zerar(m, i)
             i = i+1
         return m
@@ -47,40 +47,40 @@ class Gauss:
 
     def resolver(self, m):
         n = len(m)
-        x = [0 for i in range(n)] 
+        x = [0 for i in range(n)]
         fx = ''
         for i in range(n - 1, -1, -1):
             if m[i][i] == 0:
                 x[i] = 0
-                fx = 'x_' +str(i + 1)
+                fx = 'x_' + str(i + 1)
                 continue
             x[i] = m[i][n] / m[i][i]
             for k in range(i-1, -1, -1):
                 m[k][n] -= m[k][i] * x[i]
+        return self.formatar(x, fx)
 
-        #formatar saída
+    def formatar(self, x, fx):
+        # formatar saída
         resultado = '\('
         for i in range(len(x)):
             if fx != '' and fx != 'x_' + str(i + 1):
                 resultado += '\ x_' + str(i + 1) + \
                     '= ' + str("%.1f" % x[i]) + '+' + fx
             elif fx == 'x_' + str(i + 1):
-                 resultado += '\ x_' + str(i + 1) + '= ' + fx
-            else:    
-                resultado += '\ x_' + str(i + 1) + '= ' + str("%.1f" %  x[i])
+                resultado += '\ x_' + str(i + 1) + '= ' + fx
+            else:
+                resultado += '\ x_' + str(i + 1) + '= ' + str("%.1f" % x[i])
         resultado += '\)'
-
         return resultado
-
 
     def executar(self, m):
         ini = time.time()
         original = copy.deepcopy(m)
         triangular = self.gauss(m)
         triangular = copy.deepcopy(triangular)
-        solucao = self.resolver(m)
+        solucao = self.resolver(triangular)
         fim = time.time()
-        strTime = 'Tempo de Execução: {:0.3f}'.format(fim-ini)
+        strTime = 'Tempo de Execução: {:0.3f}'.format(fim - ini)
         resultado = Resultado(original, triangular, solucao, strTime)
         return resultado
 
@@ -93,7 +93,7 @@ class Gauss:
                 if m[i][j] != 0:
                     return False
         return True
-    
+
     def sistemaImpossivel(self, m):
         linhas = len(m)
         colunas = len(m[0])
@@ -103,4 +103,6 @@ class Gauss:
                 if m[i][j] == 0 and m[i][colunas-1] != 0:
                     return True
         return False
+
+
 
