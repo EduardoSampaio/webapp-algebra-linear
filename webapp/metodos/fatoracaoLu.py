@@ -65,7 +65,7 @@ class LU:
         # print("\n")
         # imprimir(m)
 
-        self.resolverU(m)
+        #self.resolverU(m)
         # imprimir(m)
         return m, ml  # m superior/ ml inferior
 
@@ -154,7 +154,7 @@ class LU:
     def executar(self, m):
         ini = time.time()
         m = m.tolist()
-        L, U = self.LU(m)
+        U, L = self.LU(m)
         solucao = self.resolverU(U)
         self.removeVetor(L)
         self.removeVetor(U)
