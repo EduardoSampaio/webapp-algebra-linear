@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% block title %}Fatoração LU{% endblock %}
 {% block content %}
+{% load humanize %}
 
 <div class="col-12">
     <div class="info">
@@ -27,15 +28,15 @@
         <div class="col-12">
             <div class="row">
                 <div class="col-md-5">
-                    {% if resultado %}
-                    <p>L</p>
+                    {% if resultado.resultado %}
+                    <p>Original</p>
                     {% endif %}
                     <table>
                         {% for row in resultado.original %}
                         <tr>
                             {% for cell in row %}
                             <td>
-                                {{ cell }}
+                                {{ cell|floatformat:2|intcomma }}
                             </td>
                             {% endfor %}
                         </tr>
@@ -44,15 +45,15 @@
 
                 </div>
                 <div class="col-md-5">
-                    {% if resultado %}
-                    <p>U</p>
+                    {% if resultado.resultado %}
+                    <p>Escalonada</p>
                     {% endif %}
                     <table>
                         {% for row in resultado.triangular %}
                         <tr>
                             {% for cell in row %}
                             <td>
-                                {{ cell }}
+                               {{ cell|floatformat:2|intcomma }} 
                             </td>
                             {% endfor %}
                         </tr>
