@@ -1,5 +1,7 @@
 
 import time
+from timeit import default_timer as timer
+from datetime import timedelta
 
 import numpy as np
 from .resultado import Resultado
@@ -143,15 +145,14 @@ class LU:
         return self.formatar(x, fx)
 
     def executar(self, m):
-        ini = time.time()
+        start = timer()
         m = m.tolist()
         U, L = self.LU(m)
         solucao = self.resolverU(U)
         self.removeVetor(L)
-        self.removeVetor(U)
-    
-        fim = time.time()
-        strTime = 'Tempo de Execução {:0.3f}'.format(fim-ini)
+        self.removeVetor(U)   
+        end = timer()
+        strTime = 'Tempo de Execução: ' + str(timedelta(seconds=end-start))
         resultado = Resultado(L, U, solucao, strTime)
         return resultado
 

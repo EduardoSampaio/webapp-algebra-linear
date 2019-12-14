@@ -1,6 +1,8 @@
 
 import time
 import copy
+from timeit import default_timer as timer
+from datetime import timedelta
 
 from .resultado import Resultado
 from .matrizIncompativelError import MatrizIncompativelError
@@ -100,13 +102,13 @@ class GaussJordan:
 
 
     def executar(self, m):
-        ini = time.time()
+        start = timer()
         original = copy.deepcopy(m)
         triangular = self.gaussjordan(m)
         triangular = copy.deepcopy(triangular)
-        solucao = self.resolver(m)
-        fim = time.time()
-        strTime = 'Tempo de Execução: {:0.3f}'.format(fim-ini)
+        solucao = self.resolver(triangular)
+        end = timer()
+        strTime = 'Tempo de Execução: ' + str(timedelta(seconds=end-start))           
         resultado = Resultado(original, triangular, solucao, strTime)
         return resultado
 
