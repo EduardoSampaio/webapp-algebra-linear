@@ -60,7 +60,7 @@ class Gauss:
         return self.formatar(x, fx)
 
     def formatar(self, x, fx):
-        # formatar saída
+        # formatar saída em latex
         resultado = '\('
         for i in range(len(x)):
             if fx != '' and fx != 'x_' + str(i + 1):

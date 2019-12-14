@@ -3,6 +3,7 @@ import time
 
 import numpy as np
 from .resultado import Resultado
+from .matrizIncompativelError import MatrizIncompativelError
 
 
 class LU:
@@ -22,7 +23,7 @@ class LU:
     def removeVetor(self, m):
         nLinhas = len(m)
         nCols = len(m[0])
-        b = []  # retirando o vetor b
+        b = []
         i = 0
         while(i < nLinhas):
             b.append(m[i].pop(nCols-1))
@@ -36,21 +37,18 @@ class LU:
 
         if(nLinhas > nCols):
             m = self.completar(m)
-        # print(nLinhas,nColunas)
         i = 0
         ml = self.identidade(m)
 
         while(i < nLinhas):
             if(m[i][i] == 0):
-                if(self.trocaLinhas(m, i)):
-                    print("escalonar")
-                else:
-                    print("não é possível resolver o sistema")
+               if self.trocaLinhas(m, i) or self.sistemaImpossivel(m):
+                    raise MatrizIncompativelError(
+                        'sistema impossível de resolver!')
                 # imprimir(m)
             self.upper(m, ml, i)
             i = i+1
 
-        # devolvendo o vetor b para a matriz
         i = 0
         while(i < len(ml)):
             ml[i].append(b[i])
@@ -61,13 +59,7 @@ class LU:
         while(i < len(m)):
             m[i].append(y[i])
             i = i+1
-
-        # print("\n")
-        # imprimir(m)
-
-        #self.resolverU(m)
-        # imprimir(m)
-        return m, ml  # m superior/ ml inferior
+        return m, ml 
 
     def upper(self, m, ml, i):
         nLinhas = len(m)
@@ -75,7 +67,6 @@ class LU:
         x = i+1
         while(x < nLinhas):
             mult = -m[x][i]/m[i][i]
-            # aqui começa a bagaça
             ml[x][i] = -mult
             m[x][i] = (m[i][i]*mult)+m[x][i]
             y = i+1
@@ -114,7 +105,7 @@ class LU:
             i = i+1
         return m2
 
-    def resolverL(self, m):  # b é o vetor retirado da matriz no início
+    def resolverL(self, m):
         n = len(m)
         y = [0 for i in range(n)]
         for i in range(n):
@@ -124,7 +115,7 @@ class LU:
         return y
 
     def formatar(self, x, fx):
-        # formatar saída
+        # formatar saída em latex
         resultado = '\('
         for i in range(len(x)):
             if fx != '' and fx != 'x_' + str(i + 1):
@@ -163,3 +154,13 @@ class LU:
         strTime = 'Tempo de Execução {:0.3f}'.format(fim-ini)
         resultado = Resultado(L, U, solucao, strTime)
         return resultado
+
+    def sistemaImpossivel(self, m):
+        linhas = len(m)
+        colunas = len(m[0])
+
+        for i in range(linhas - 1, linhas):
+            for j in range(colunas):
+                if m[i][j] == 0 and m[i][colunas-1] != 0:
+                    return True
+        return False    
